@@ -18,7 +18,7 @@ window.onload = async function () {
 
     }
 
-    route = "https://centurytt.herokuapp.com//ViewBookings"
+    route = "https://centurytt.herokuapp.com/ViewBookings"
     var data = {};
     var bookings = await senddata(data, route)
     console.log(bookings)
