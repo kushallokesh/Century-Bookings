@@ -27,8 +27,22 @@
 
 </head>
 <body>
-    <div style="display:flex;width:100%;justify-content:center;align-content:center;flex-wrap:wrap">
-        <div style="display:flex;width:85%;justify-content:center;align-content:center;flex-wrap:wrap">
+    <div style="display:flex;width:100%;justify-content:center;align-content:center;flex-wrap:wrap;min-height:100vh;
+     background-image: url('badminton.jpg');background-position: center; background-repeat: no-repeat; background-size:cover;">
+
+        <div style="display:flex;justify-content:center;align-items:center;background-color:#00d69a;width:100%">
+
+            <h1 class="display-3" style=" font-size: 2rem;color: white;margin: 10px 0px 10px 0px;">
+
+                Book your Slot
+
+            </h1>
+
+
+
+        </div>
+
+        <div style="display:flex;width:85%;justify-content:center;align-content:center;flex-wrap:wrap" class="ccard">
 
             <div style="width:inherit">
                 <label for="exampleForm2">Player Name</label>
@@ -47,35 +61,37 @@
 
         </div>
 
-        <label for="exampleForm2" style="width:100%;align-self:center">Select a Week</label>
+        <div style="display:flex;width:85%;justify-content:center;align-content:center;flex-wrap:wrap;padding:6%" class="ccard">
 
-        <div class="input-group mb-3">
+            <label for="exampleForm2">Select a Week</label>
 
-
-            <input type="text" class="form-control" id='weekval' placeholder="Username" aria-label="Select a Week" aria-describedby="button-addon2" value="default" readonly>
-            <button type="button" id='Weekbutton' class="btn btn-primary" data-toggle="modal" data-target="#SelectWeekModal">Select</button>
-
-        </div>
-
-        <label for="exampleForm2">Select Day</label>
-
-        <div class="input-group mb-3">
-
-            <input type="text" class="form-control" id='dayval' placeholder="Username" aria-label="Select Day" aria-describedby="button-addon2" value="default" readonly>
-            <button type="button" id='Daybutton' class="btn btn-primary" data-toggle="modal" data-target="#SelectDay">Select</button>
-
-        </div>
+            <div class="input-group mb-3">
 
 
+                <input type="text" class="form-control" id='weekval' placeholder="Select a Week" aria-label="Select a Week" aria-describedby="button-addon2" readonly>
+                <button type="button" id='Weekbutton' class="btn btn-primary selbutton" data-toggle="modal" data-target="#SelectWeekModal">Select</button>
 
-        <div style="display:flex;width:85%;justify-content:center;align-content:center;flex-wrap:wrap">
+            </div>
+
+            <label for="exampleForm2">Select Day</label>
+
+            <div class="input-group mb-3">
+
+                <input type="text" class="form-control" id='dayval' placeholder="Select a Day" aria-label="Select Day" aria-describedby="button-addon2" readonly>
+                <button type="button" id='Daybutton' class="btn btn-primary selbutton" data-toggle="modal" data-target="#SelectDay">Select</button>
+
+            </div>
+
+
+
+
 
             <label for="exampleForm2">Select Time</label>
 
             <div class="input-group mb-3">
 
-                <input type="text" class="form-control" id='timeval' value="default" placeholder="Username" aria-label="Select Day" aria-describedby="button-addon2" readonly>
-                <button type="button" id='Daybutton' class="btn btn-primary" data-toggle="modal" data-target="#SelectTime">Select</button>
+                <input type="text" class="form-control" id='timeval' placeholder="Select a Time Slot" aria-label="Select Day" aria-describedby="button-addon2" readonly>
+                <button type="button" id='Daybutton' class="btn btn-primary selbutton" data-toggle="modal" data-target="#SelectTime">Select</button>
 
             </div>
 
@@ -84,252 +100,243 @@
 
             <div class="input-group mb-3">
 
-                <input type="text" class="form-control" id='tableval' value="default" placeholder="Username" aria-label="Select Day" aria-describedby="button-addon2" readonly>
-                <button type="button" id='Daybutton' class="btn btn-primary" data-toggle="modal" data-target="#SelectTable">Select</button>
+                <input type="text" class="form-control" id='tableval' placeholder="Select a Table" aria-label="Select Day" aria-describedby="button-addon2" readonly>
+                <button type="button" id='Daybutton' class="btn btn-primary selbutton" data-toggle="modal" data-target="#SelectTable">Select</button>
 
             </div>
-
-            <div style="width:inherit;text-align:center" >
-
-                <button type="button" id='Daybutton' class="btn btn-primary" onclick="booktable()" >Book Table</button>
-
-            </div>
-
 
         </div>
 
-    </div>
+        <div style="width:inherit;text-align:center">
 
-
-
-
-    <div class="modal fade" id="SelectWeekModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
-
-        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
-        <div class="modal-dialog modal-dialog-centered" role="document">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Select Week</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="Weekradio" onchange="weekradio('Week 1 (25-5-20 to 31-5-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample1">
-                            Week 1 (25-5-20 to 31-5-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="Weekradio" onchange="weekradio('Week 2 (1-06-20 to 7-6-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample2">
-                            Week 2 (1-06-20 to 7-6-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="Weekradio" onchange="weekradio('Week 3 (8-6-20 to 14-6-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample3">
-                            Week 3 (8-6-20 to 14-6-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="Weekradio" onchange="weekradio('Week 4 (15-6-20 to 21-6-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample4">
-                            Week 4 (15-6-20 to 21-6-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample5" name="Weekradio" onchange="weekradio('Week 5 (22-06-20 to 28-06-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample5">
-                            Week 5 (22-06-20 to 28-06-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample6" name="Weekradio" onchange="weekradio('Week 6 (29-06-20 to 5--07-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample6">
-                            Week 6 (29-06-20 to 5--07-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample7" name="Weekradio" onchange="weekradio('Week 7 (6-07-20 to 12-07-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample7">
-                            Week 7 (6-07-20 to 12-07-20)
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample8" name="Weekradio" onchange="weekradio('Week 8 (13-07-20 to 19-07-20)')">
-                        <label class="custom-control-label" for="defaultGroupExample8">
-                            Week 8 (13-07-20 to 19-07-20)
-                        </label>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+            <button type="button" id='Daybutton' class="btn btn-primary" onclick="booktable()">Book Table</button>
 
         </div>
-    </div>
 
-    <div class="modal fade" id="SelectDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
 
-        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal fade" id="SelectWeekModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Select Day</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select a Week</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="Weekradio" onchange="weekradio('Week 1 (25-5-20 to 31-5-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample1">
+                                Week 1 (25-5-20 to 31-5-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="Weekradio" onchange="weekradio('Week 2 (1-06-20 to 7-6-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample2">
+                                Week 2 (1-06-20 to 7-6-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="Weekradio" onchange="weekradio('Week 3 (8-6-20 to 14-6-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample3">
+                                Week 3 (8-6-20 to 14-6-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="Weekradio" onchange="weekradio('Week 4 (15-6-20 to 21-6-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample4">
+                                Week 4 (15-6-20 to 21-6-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample5" name="Weekradio" onchange="weekradio('Week 5 (22-06-20 to 28-06-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample5">
+                                Week 5 (22-06-20 to 28-06-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample6" name="Weekradio" onchange="weekradio('Week 6 (29-06-20 to 5--07-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample6">
+                                Week 6 (29-06-20 to 5--07-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample7" name="Weekradio" onchange="weekradio('Week 7 (6-07-20 to 12-07-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample7">
+                                Week 7 (6-07-20 to 12-07-20)
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultGroupExample8" name="Weekradio" onchange="weekradio('Week 8 (13-07-20 to 19-07-20)')">
+                            <label class="custom-control-label" for="defaultGroupExample8">
+                                Week 8 (13-07-20 to 19-07-20)
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-body">
 
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Monday" name="Dayradio" onchange="dayradio('Monday')">
-                        <label class="custom-control-label" for="Monday">
-                            Monday
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Tuesday" name="Dayradio" onchange="dayradio('Tuesday')">
-                        <label class="custom-control-label" for="Tuesday">
-                            Tuesday
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Wednesday" name="Dayradio" onchange="dayradio('Wednesday')">
-                        <label class="custom-control-label" for="Wednesday">
-                            Wednesday
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Thursday" name="Dayradio" onchange="dayradio('Thursday')">
-                        <label class="custom-control-label" for="Thursday">
-                            Thursday
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Friday" name="Dayradio" onchange="dayradio('Friday')">
-                        <label class="custom-control-label" for="Friday">
-                            Friday
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Saturday" name="Dayradio" onchange="dayradio('Saturday')">
-                        <label class="custom-control-label" for="Saturday">
-                            Saturday
-                        </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Sunday" name="Dayradio" onchange="dayradio('Sunday')">
-                        <label class="custom-control-label" for="Sunday">
-                            Sunday
-                        </label>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
-
-
-
         </div>
-    </div>
 
-    <div class="modal fade" id="SelectTime" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
+        <div class="modal fade" id="SelectDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
 
-        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
-        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Select Day</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="Radiotime">
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Monday" name="Dayradio" onchange="dayradio('Monday')">
-                        <label class="custom-control-label" for="Monday">
-                            Monday
-                        </label>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select a Day</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
 
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Monday" name="Dayradio" onchange="dayradio('Monday')">
+                            <label class="custom-control-label" for="Monday">
+                                Monday
+                            </label>
+                        </div>
 
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Tuesday" name="Dayradio" onchange="dayradio('Tuesday')">
+                            <label class="custom-control-label" for="Tuesday">
+                                Tuesday
+                            </label>
+                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Wednesday" name="Dayradio" onchange="dayradio('Wednesday')">
+                            <label class="custom-control-label" for="Wednesday">
+                                Wednesday
+                            </label>
+                        </div>
 
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Thursday" name="Dayradio" onchange="dayradio('Thursday')">
+                            <label class="custom-control-label" for="Thursday">
+                                Thursday
+                            </label>
+                        </div>
 
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Friday" name="Dayradio" onchange="dayradio('Friday')">
+                            <label class="custom-control-label" for="Friday">
+                                Friday
+                            </label>
+                        </div>
 
-        </div>
-    </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Saturday" name="Dayradio" onchange="dayradio('Saturday')">
+                            <label class="custom-control-label" for="Saturday">
+                                Saturday
+                            </label>
+                        </div>
 
-    <div class="modal fade" id="SelectTable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Sunday" name="Dayradio" onchange="dayradio('Sunday')">
+                            <label class="custom-control-label" for="Sunday">
+                                Sunday
+                            </label>
+                        </div>
 
-        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
-        <div class="modal-dialog modal-dialog-centered" role="document">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Select Day</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="Radiotable">
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="Monday" name="Dayradio" onchange="dayradio('Monday')">
-                        <label class="custom-control-label" for="Monday">
-                            Monday
-                        </label>
                     </div>
-
-
-
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
+
+
             </div>
-
-
-
         </div>
+
+        <div class="modal fade" id="SelectTime" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
+
+            <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select a Time Slot</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="Radiotime">
+
+                        <div class="custom-control custom-radio">
+                            <label>
+                                Please Choose a Week and a Day
+                            </label>
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="SelectTable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
+
+            <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select a Table</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="Radiotable">
+
+                        <div class="custom-control custom-radio">
+                            <label>
+                                Please Choose a Time Slot
+                            </label>
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
     </div>
 
 
@@ -338,6 +345,38 @@
         .dropdown-menu {
             font-size: 3.5rem;
         }
+
+        .ccard {
+            display: flex;
+            width: 85%;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            background-color: white;
+            padding-bottom: 20px;
+            padding-top: 15px;
+            margin-top: 25px;
+            border-radius: 7px;
+            opacity: 0.9;
+               
+        }
+
+        .selbutton {
+            margin: 0px;
+            padding: 7px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: 500;
+            font-family: sans-serif;
+            margin-top: 25px;
+        }
+
+        .input-group.mb-3 {
+            padding: 15px;
+        }
+        
     </style>
 
     <script type="text/javascript" src="Century.js"></script>

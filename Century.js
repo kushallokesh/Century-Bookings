@@ -1,9 +1,12 @@
 // JavaScript source code
 console.log(document.getElementById("dayval").value)
-var weekvalue = "default"
-var dayvalue = "default"
-var timevalue = "default"
-var tablevalue = "default"
+var weekvalue = document.getElementById("weekval") 
+var dayvalue = document.getElementById("dayval")
+var timevalue = document.getElementById("timeval")
+var tablevalue = document.getElementById("tableval")
+
+
+
 
 var avlslots
 
@@ -37,8 +40,9 @@ function tableradio(wvalue) {
 
 async function update() {
 
-    if (dayvalue.value != "default" && weekvalue.value != "default") {
+    if (dayvalue.value != "Select a Day" && weekvalue.value != "Select a Week") {
 
+        console.log("update")
         document.getElementById("Radiotime").innerHTML="";
 
         data = { "Week": weekvalue.value, "Day": dayvalue.value }
@@ -71,8 +75,9 @@ async function update() {
 
 async function update1() {
 
-    if (dayvalue.value != "default" && weekvalue.value != "default") {
+    if (dayvalue.value != "" && weekvalue.value != "") {
 
+        console.log("update")
         document.getElementById("Radiotime").innerHTML = "";
 
         data = { "Week": weekvalue.value, "Day": dayvalue.value }
@@ -138,12 +143,20 @@ async function booktable() {
     var Player = document.getElementById("PlayerName");
     var Partner = document.getElementById("PartnerName")
     var Member = document.getElementById("MemNum")
+    console.log(tablevalue.value)
+    console.log(timevalue.value)
+    console.log(dayvalue.value)
+    console.log(weekvalue.value)
 
-    if (tablevalue.value == "default" || timevalue.value == "default" || Player.value == ""|| Partner.value == ""|| Member.value == "") {
+    if (dayvalue.value == "" ||
+        weekvalue.value == "" ||
+        timevalue.value == "" ||
+        tablevalue.value == "" ||      
+        Player.value == "" ||
+        Member.value == "") {
 
         alert("Please enter all Mandatory fields")
-        console.log("in")
-
+    
     }
     else {
 
@@ -165,8 +178,6 @@ async function booktable() {
     }
 
 }
-
-
 
 async function senddata(data, route) {
 
