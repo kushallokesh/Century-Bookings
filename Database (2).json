@@ -1,0 +1,41 @@
+[
+  {
+    "Week": "Week 1 (25-5-20 to 31-5-20)",
+    "Day": "Monday",
+    "Mem_No": "Table A",
+    "Name": "PlayerA",
+    "PartnerName": null,
+    "TimeSlot": "7:00 to 8:00 am",
+    "Table": "Table A"
+  },
+
+  {
+    "Week": "Week 1 (25-5-20 to 31-5-20)",
+    "Day": "Monday",
+    "Mem_No": "Table A",
+    "Name": "PlayerA",
+    "PartnerName": null,
+    "TimeSlot": "7:00 to 8:00 am",
+    "Table": "Table B"
+  },
+
+  {
+    "Week": "Week 1 (25-5-20 to 31-5-20)",
+    "Day": "Monday",
+    "Mem_No": "Table A",
+    "Name": "PlayerA",
+    "PartnerName": null,
+    "TimeSlot": "7:00 to 8:00 am",
+    "Table": "Table C"
+  },
+
+  {
+    "Week": "Week 1 (25-5-20 to 31-5-20)",
+    "Day": "Monday",
+    "Mem_No": "Table A",
+    "Name": "PlayerA",
+    "PartnerName": null,
+    "TimeSlot": "9:00 to 10:00 am",
+    "Table": "Table B"
+  }
+]
