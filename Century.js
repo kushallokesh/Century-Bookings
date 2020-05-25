@@ -1,12 +1,16 @@
 // JavaScript source code
+$('#rules').modal('show')
+
+var loader = document.getElementById("loader")
+var header = document.getElementsByClassName("lbheader")[0]
+
+
 console.log(document.getElementById("dayval").value)
+
 var weekvalue = document.getElementById("weekval") 
 var dayvalue = document.getElementById("dayval")
 var timevalue = document.getElementById("timeval")
 var tablevalue = document.getElementById("tableval")
-
-
-
 
 var avlslots
 
@@ -78,6 +82,9 @@ async function update1() {
     if (dayvalue.value != "" && weekvalue.value != "") {
 
         console.log("update")
+        loader.style.display = "flex"
+        header.textContent = "Fetching Time Slots . . .";
+
         document.getElementById("Radiotime").innerHTML = "";
 
         data = { "Week": weekvalue.value, "Day": dayvalue.value }
@@ -95,8 +102,11 @@ async function update1() {
             div.innerHTML = radiotime + label;
             document.getElementById("Radiotime").appendChild(div);
         })
-    }
 
+        loader.style.display = "";
+
+    }
+  
 }
 
 function updatetable(wvalue) {
@@ -160,6 +170,9 @@ async function booktable() {
     }
     else {
 
+        loader.style.display = "flex"
+        header.textContent = "Booking Table";
+
         data = {
             "Week": weekvalue.value,
             "Day": dayvalue.value,
@@ -174,6 +187,7 @@ async function booktable() {
         route = "https://centurytt.herokuapp.com/UpdateTable"
 
         var res = await senddata(data, route)
+        loader.style.display = ""
 
     }
 

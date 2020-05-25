@@ -1,0 +1,147 @@
+﻿body {
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    top:auto;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(105, 105, 105, 0.7);
+    z-index: 100;
+    text-align: center;
+    justify-content:center;
+    
+}
+
+#loader {
+    z-index: 11000;
+    display: none;
+}
+
+#Error {
+    z-index: 11000;
+    display: none;
+}
+
+#productError {
+    z-index: 15000;
+    display: none;
+}
+
+
+#Newfileupload {
+    z-index: 10000;
+    display: none;
+}
+
+#productstructure {
+    display: none;
+}
+
+.loaderbox {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    min-height: 200px;
+    /*max-height:250px;*/
+    margin: 25px;
+    text-align: center;
+    position: relative;
+    background-color: #f8f9fc;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: .35rem;
+    align-self: center;
+}
+
+.loaderbox.productstructure {
+    width: 75%;
+    height: 90%;
+    background-color: #ffffff;
+}
+
+.loaderbox.errorbox {
+    
+    max-height:75%;
+    align-self:center;
+    overflow-y:auto;
+}
+
+
+.lbheader {
+    padding: 16px;
+    background-color: cadetblue;
+    color: white;
+    border: inherit;
+    border-radius: inherit;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.lbheader.productstructure {
+    background-color: cornflowerblue;
+    margin-bottom:15px
+}
+
+.lbheader.errorbox {
+background-color: darkred;
+    
+}
+
+
+#flexcolumn {
+    display: flex;
+    align-content:center;   
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.wavebutton {
+    width: auto;
+    /*height: 35px;*/
+    background-color: #109bc6;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 3px;
+    
+}
+
+.wavebutton:hover {
+        background-color: #f7680a;
+    }
+
+#asmtable {
+    height:80%;
+}
+
+.tabulator-data-tree-branch {
+ 
+    border-color:darkred !important;
+}
+
+
+
+#asmtable.tabulator-tableHolder {
+    height: 80%;
+}
+
+.tabulator{
+    font-size:10px;
+    font-weight:700;
+
+
+}
+
+
+#Message.tabulator {
+    font-size: 14px;
+    font-weight: 500;
+}

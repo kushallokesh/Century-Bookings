@@ -72,12 +72,12 @@ app.post("/UpdateTable", async function (req, res) {
         var bookingdatabase = JSON.stringify(database)
         await fs.writeFileSync('./Database.json', bookingdatabase)
         res.send("done")
-
+        res.send({ "Status": "Booked" })
     }
 
 
-
-    res.send("error")
+    res.send({ "Status": "Error" })
+    
 
 });
 
