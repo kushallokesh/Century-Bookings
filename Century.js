@@ -190,12 +190,22 @@ async function booktable() {
         route = "https://centurytt.herokuapp.com/UpdateTable"
 
         var res = await senddata(data, route)
-        
-        if (res.status === "Booked") {
+        console.log(res);
+        if (res.Status === "Booked") {
 
-            confirmheader.style.backgroundColor = "#00d69a";
+            confirm.style.backgroundColor = "#00d69a";
             confirmheader.textContent = "Booking Confirmed"
+            confirmheader.style.color = "white"
             confirmtext.textContent = "Your TT table has been successfully booked"
+
+            $('#confirmmodal').modal('show')
+        }
+        else {
+
+            confirm.style.backgroundColor = "#c40055";
+            confirmheader.textContent = "Booking Failed"
+            confirmheader.style.color = "white"
+            confirmtext.textContent = "This time slot is already booked, please re-select a time slot"
 
             $('#confirmmodal').modal('show')
         }
