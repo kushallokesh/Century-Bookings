@@ -30,7 +30,7 @@ window.onload = async function () {
     var data = {};
     var bookings = await senddata(data, route)
 
-    console.log(bookings)
+
 
     var table = new Tabulator(table7, {
 
