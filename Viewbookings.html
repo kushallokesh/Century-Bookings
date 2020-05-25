@@ -13,12 +13,56 @@
     <!--<link href="tabulator/css/tabulator_site.min.css" rel="stylesheet">-->
     <!--<link href="tabulator/css/tabulator_midnight.min.css" rel="stylesheet">-->
 
-
     <script type="text/javascript" src="tabulator/js/tabulator.min.js"></script>
+
+    <link href="new.css" rel="stylesheet">
+
+
 </head>
 
-<body>
-    <div id="table7"></div>
+<body style="Width:100%;min-height:100vh;background-image: url('tabletennis.jpg');background-position: center; background-repeat: no-repeat; background-size:cover;margin: 0px;">
+
+    <div style="display:flex;justify-content:center;align-items:center;background-color:#00d69a;width:100%;font-family: sans-serif;font-weight: 500;">
+
+        <h1 class="display-3" style=" font-size: 2rem;color: white;margin: 10px 0px 10px 0px;">
+
+            Corfimred Bookings
+
+        </h1>
+
+    </div>
+
+    <div id="table7" style="margin-top:25px"></div>
+
+
+
+    <div class="overlay" id="loader">
+
+        <div class="loaderbox" style="height:200px">
+            <div class="lbheader">
+                Checking-Out
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="flexcolumn" style="flex:1">
+
+                <div style="display:flex;justify-content:center;align-items:center;width:100%">
+                    <div class="spinner-border m-5 text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
 
     <script type="text/javascript" src="Bookings.js"></script>
 

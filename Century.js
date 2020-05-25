@@ -4,6 +4,9 @@ $('#rules').modal('show')
 var loader = document.getElementById("loader")
 var header = document.getElementsByClassName("lbheader")[0]
 
+var confirm = document.getElementById("Confirm")
+var confirmheader = document.getElementById("Confirmheader")
+var confirmtext = document.getElementById("Confirmtation")
 
 console.log(document.getElementById("dayval").value)
 
@@ -187,6 +190,16 @@ async function booktable() {
         route = "https://centurytt.herokuapp.com/UpdateTable"
 
         var res = await senddata(data, route)
+        
+        if (res.status === "Booked") {
+
+            confirmheader.style.backgroundColor = "#00d69a";
+            confirmheader.textContent = "Booking Confirmed"
+            confirmtext.textContent = "Your TT table has been successfully booked"
+
+            $('#confirmmodal').modal('show')
+        }
+
         loader.style.display = ""
 
     }

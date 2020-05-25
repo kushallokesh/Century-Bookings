@@ -18,9 +18,18 @@ window.onload = async function () {
 
     }
 
+    var loader = document.getElementById("loader")
+    var header = document.getElementsByClassName("lbheader")[0]
+
+    loader.style.display = "flex"
+    header.textContent = "Fetching Confirmed Bookings";
+
+
     route = "https://centurytt.herokuapp.com/ViewBookings"
+    //route = "http://localhost:1337/ViewBookings"
     var data = {};
     var bookings = await senddata(data, route)
+
     console.log(bookings)
 
     var table = new Tabulator(table7, {
@@ -28,13 +37,14 @@ window.onload = async function () {
         pagination: "local",
         paginationSize: 500,
        // paginationSizeSelector: [20, 50, 150],
-        //movableColumns: true,
+        movableColumns: false,
         //  layout: "fitColumns",
         layout: "fitDataStretch",
+        //layout: "fitColumns",
         //data: tabledata.Files,
         data: bookings,
         selectable: 0,
-
+        
         columns: [
 
             { title: "Membership.No", field: "Mem_No", headerFilter: "input", responsive: 0, tooltip: true, headerSort: false, },
@@ -47,5 +57,8 @@ window.onload = async function () {
 
         ],
     });
+
+    loader.style.display = "";
+
 };
 
