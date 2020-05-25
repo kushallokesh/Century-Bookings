@@ -8,7 +8,7 @@ var confirm = document.getElementById("Confirm")
 var confirmheader = document.getElementById("Confirmheader")
 var confirmtext = document.getElementById("Confirmtation")
 
-console.log(document.getElementById("dayval").value)
+//console.log(document.getElementById("dayval").value)
 
 var weekvalue = document.getElementById("weekval") 
 var dayvalue = document.getElementById("dayval")
@@ -49,7 +49,7 @@ async function update() {
 
     if (dayvalue.value != "Select a Day" && weekvalue.value != "Select a Week") {
 
-        console.log("update")
+       // console.log("update")
         document.getElementById("Radiotime").innerHTML="";
 
         data = { "Week": weekvalue.value, "Day": dayvalue.value }
@@ -60,10 +60,10 @@ async function update() {
             return result.TimeSlot
         });
 
-        console.log(getslots);
+        //console.log(getslots);
 
         let intersection = slots.filter(x => !getslots.includes(x));
-        console.log(intersection)
+        //console.log(intersection)
 
         i = 0;
         intersection.forEach(function (timeslots) {
@@ -84,7 +84,7 @@ async function update1() {
 
     if (dayvalue.value != "" && weekvalue.value != "") {
 
-        console.log("update")
+        //console.log("update")
         loader.style.display = "flex"
         header.textContent = "Fetching Time Slots . . .";
 
@@ -123,7 +123,7 @@ function updatetable(wvalue) {
     });
 
     var intersection = table.filter(x => !gettable.includes(x));
-    console.log(intersection)
+    //console.log(intersection)
 
     if (intersection.length == 0) {
 
@@ -156,10 +156,10 @@ async function booktable() {
     var Player = document.getElementById("PlayerName");
     var Partner = document.getElementById("PartnerName")
     var Member = document.getElementById("MemNum")
-    console.log(tablevalue.value)
-    console.log(timevalue.value)
-    console.log(dayvalue.value)
-    console.log(weekvalue.value)
+    //console.log(tablevalue.value)
+    //console.log(timevalue.value)
+    //console.log(dayvalue.value)
+    //console.log(weekvalue.value)
 
     if (dayvalue.value == "" ||
         weekvalue.value == "" ||
@@ -190,7 +190,7 @@ async function booktable() {
         route = "https://centurytt.herokuapp.com/UpdateTable"
 
         var res = await senddata(data, route)
-        console.log(res);
+        //console.log(res);
         if (res.Status === "Booked") {
 
             confirm.style.backgroundColor = "#00d69a";
