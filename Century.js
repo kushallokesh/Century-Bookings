@@ -242,7 +242,7 @@ async function senddata(data, route) {
 
     const options = {
         method: 'POST',
-        cache: false,
+        
         headers: {
             'Content-Type': 'application/json',
         },

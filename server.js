@@ -26,21 +26,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-
-
-//var connection = mysql.createConnection({
-//    host: '77.104.168.224',
-//    user: 'kluarc20_Kushal',
-//    password: 'kushal777',
-//    database: 'kluarc20_Century'
-//});
-
-
-
-
-//var query = "SELECT * FROM TableTennis"
-
 async function getdatabase() {
     const database1 = await fs.readFileSync('./Database.json')
     var database = JSON.parse(database1);
@@ -63,7 +48,6 @@ async function mysqlkluarc(query,res,status) {
         connection.end();
         res.send(status)
     });
-    console.log("resdone")
     
 }
 
