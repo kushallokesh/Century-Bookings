@@ -29,12 +29,13 @@ app.use(function (req, res, next) {
 
 
 
-var connection = mysql.createConnection({
-    host: '77.104.168.224',
-    user: 'kluarc20_Kushal',
-    password: 'kushal777',
-    database: 'kluarc20_Century'
-});
+//var connection = mysql.createConnection({
+//    host: '77.104.168.224',
+//    user: 'kluarc20_Kushal',
+//    password: 'kushal777',
+//    database: 'kluarc20_Century'
+//});
+
 
 
 
@@ -49,32 +50,44 @@ async function getdatabase() {
 
 async function mysqlkluarc(query,res,status) {
 
-    //connection.connect();
+    var connection = mysql.createConnection({
+        host: '77.104.168.224',
+        user: 'kluarc20_Kushal',
+        password: 'kushal777',
+        database: 'kluarc20_Century'
+    });
 
     connection.query(query, function (error, results) {
         if (error) throw error;
         console.log(results);
+        connection.end();
         res.send(status)
     });
     console.log("resdone")
-    //connection.end();
-
+    
 }
 
 function mysqlget(query) {
     return new Promise(function (resolve, reject) {
 
-        //connection.connect();
+        var connection = mysql.createConnection({
+            host: '77.104.168.224',
+            user: 'kluarc20_Kushal',
+            password: 'kushal777',
+            database: 'kluarc20_Century'
+        });
+
         
         connection.query(query, function (error, results) {
-            if (error) throw error;
+
+            if (error) throw error
+
             console.log(results);
-            
+            connection.end();
             resolve(results);
            
         });
-        
-        //connection.end();
+
 
     });
 }
@@ -123,8 +136,10 @@ app.get("/ViewBookings", async function (req, res) {
 
     var query = "SELECT * FROM TableTennis"
     var database = await mysqlget(query)
-   
+
     res.send(database);
+
+
 });
 
 

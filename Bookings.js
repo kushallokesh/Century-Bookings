@@ -2,19 +2,10 @@ window.onload = async function () {
 
     async function senddata(data, route) {
 
-        const options = {
-            method: 'POST',
-            cache: false,
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
 
-            body: JSON.stringify(data),
-
-        };
 
         const response = await fetch(route);
+        console.log(response);
         return resdata = await response.json();
 
     }
@@ -26,8 +17,8 @@ window.onload = async function () {
     header.textContent = "Fetching Confirmed Bookings";
 
 
-    route = "https://centurytt.herokuapp.com/ViewBookings"
-    //route = "http://localhost:1337/ViewBookings"
+    //route = "https://centurytt.herokuapp.com/ViewBookings"
+    route = "http://localhost:1337/ViewBookings"
 
     var data = {};
     var bookings = await senddata(data, route)
@@ -39,9 +30,9 @@ window.onload = async function () {
         pagination: "local",
         paginationSize: 500,
        // paginationSizeSelector: [20, 50, 150],
-        movableColumns: false,
+        movableColumns:false,
         //  layout: "fitColumns",
-        layout: "fitDataStretch",
+        layout: "fitData",
         //layout: "fitColumns",
         //data: tabledata.Files,
         data: bookings,
