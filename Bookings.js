@@ -25,8 +25,8 @@ window.onload = async function () {
     header.textContent = "Fetching Confirmed Bookings";
 
 
-    //route = "https://centurytt.herokuapp.com/ViewBookings"
-    route = "http://localhost:1337/ViewBookings"
+    route = "https://centurytt.herokuapp.com/ViewBookings"
+    //route = "http://localhost:1337/ViewBookings"
 
     var data = {};
     var bookings = await senddata(data, route)

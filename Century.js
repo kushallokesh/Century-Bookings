@@ -91,8 +91,8 @@ async function update1() {
         document.getElementById("Radiotime").innerHTML = "";
 
         data = { "Week": weekvalue.value, "Day": dayvalue.value }
-        route = "http://localhost:1337/GetSlots"
-        //route = "https://centurytt.herokuapp.com/GetSlots"
+        //route = "http://localhost:1337/GetSlots"
+        route = "https://centurytt.herokuapp.com/GetSlots"
         avlslots = await senddata(data, route)
 
         i = 0;
@@ -186,8 +186,8 @@ async function booktable() {
             "Table": tablevalue.value
         },
 
-        route = "http://localhost:1337/UpdateTable"
-        //route = "https://centurytt.herokuapp.com/UpdateTable"
+        //route = "http://localhost:1337/UpdateTable"
+        route = "https://centurytt.herokuapp.com/UpdateTable"
 
         var res = await senddata(data, route)
         console.log(res);
