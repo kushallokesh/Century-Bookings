@@ -109,7 +109,7 @@ app.post("/UpdateTable", async function (req, res) {
 
     }
 
-    else {
+    else { 
 
         res.send({ "Status": "Error" })
 
