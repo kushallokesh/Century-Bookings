@@ -4,8 +4,9 @@ window.onload = async function () {
 
         const options = {
             method: 'POST',
-
-            headers: {
+            cache: false,
+                headers: {
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
 
@@ -13,7 +14,7 @@ window.onload = async function () {
 
         };
 
-        const response = await fetch(route, options);
+        const response = await fetch(route);
         return resdata = await response.json();
 
     }

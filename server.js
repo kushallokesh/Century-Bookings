@@ -22,7 +22,6 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Headers", "*");
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-    res.setHeader("Access-Control-Expose-Headers", "authorization");
 
     next();
 });
@@ -120,7 +119,7 @@ app.post("/UpdateTable", async function (req, res) {
 
 });
 
-app.post("/ViewBookings", async function (req, res) {
+app.get("/ViewBookings", async function (req, res) {
 
     var query = "SELECT * FROM TableTennis"
     var database = await mysqlget(query)

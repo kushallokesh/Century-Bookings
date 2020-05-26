@@ -17,6 +17,28 @@ var tablevalue = document.getElementById("tableval")
 
 var avlslots
 
+
+
+var slots = [
+    "7:00 to 8:00 am",
+    "8:00 to 9:00 am",
+    "9:00 to 10:00 am",
+    "10:00 to 11:00 am",
+    "11:00 to 12:00 pm",
+    "12:00 to 1:00 pm",
+    "1:00 to 2:00 pm",
+    "2:00 to 3:00 pm",
+    "3:00 to 4:00 pm",
+    "4:00 to 5:00 pm",
+    "5:00 to 6:00 pm",
+]
+
+var table = [
+    "Table A",
+    "Table B",
+    "Table C",
+]
+
 function weekradio(wvalue) {
     weekvalue = document.getElementById("weekval") 
     weekvalue.value  = wvalue
@@ -94,7 +116,7 @@ async function update1() {
         //route = "http://localhost:1337/GetSlots"
         route = "https://centurytt.herokuapp.com/GetSlots"
         avlslots = await senddata(data, route)
-
+        console.log(avlslots)
         i = 0;
         slots.forEach(function (timeslots) {
             i++
@@ -220,7 +242,7 @@ async function senddata(data, route) {
 
     const options = {
         method: 'POST',
-
+        cache: false,
         headers: {
             'Content-Type': 'application/json',
         },
@@ -234,23 +256,4 @@ async function senddata(data, route) {
 
 }
 
-var slots =[
-"7:00 to 8:00 am",
-"8:00 to 9:00 am",
-"9:00 to 10:00 am",
-"10:00 to 11:00 am",
-"11:00 to 12:00 pm",
-"12:00 to 1:00 pm",
-"1:00 to 2:00 pm",
-"2:00 to 3:00 pm",
-"3:00 to 4:00 pm",
-"4:00 to 5:00 pm",
-"5:00 to 6:00 pm",
-]
-
-var table = [
-    "Table A",
-    "Table B",
-    "Table C",
-]
 
