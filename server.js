@@ -1,7 +1,7 @@
 'use strict';
 var http = require('http');
 var port = process.env.PORT || 1337;
-
+var mysql = require('mysql');
 var express = require('express');
 var app = express(); 
 var bodyParser = require('body-parser');
@@ -27,6 +27,20 @@ app.use(function (req, res, next) {
     next();
 });
 
+
+
+
+var connection = mysql.createConnection({
+    host: '77.104.168.224',
+    user: 'kluarc20_Kushal',
+    password: 'kushal777',
+    database: 'kluarc20_Century'
+});
+
+
+
+//var query = "SELECT * FROM TableTennis"
+
 async function getdatabase() {
     const database1 = await fs.readFileSync('./Database.json')
     var database = JSON.parse(database1);
@@ -34,20 +48,45 @@ async function getdatabase() {
     console.log(database);
 }
 
+async function mysqlkluarc(query,res,status) {
+
+    //connection.connect();
+
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        console.log(results);
+        res.send(status)
+    });
+    console.log("resdone")
+    //connection.end();
+
+}
+
+function mysqlget(query) {
+    return new Promise(function (resolve, reject) {
+
+        //connection.connect();
+        
+        connection.query(query, function (error, results) {
+            if (error) throw error;
+            console.log(results);
+            
+            resolve(results);
+           
+        });
+        
+        //connection.end();
+
+    });
+}
+
 app.post("/GetSlots", async function (req, res) {
 
-    var data = req.body;
+    var object = req.body;
   //  console.log(data)
-    var database = await getdatabase();
-  //  console.log(database)
-    var Slots = database.filter(function (result) {
-        console.log(data.Week)
-        console.log(result.Week)
-        if (result.Week === data.Week && result.Day === data.Day) {
-            var object = { "TimeSlot": result.TimeSlot, "Table": result.Table }
-            return object
-        }
-    });
+    var query = "SELECT * FROM TableTennis WHERE Week = '" + object.Week + "' AND Day = '" + object.Day +"'"
+
+    var Slots = await mysqlget(query)
 
     console.log(Slots)
     res.send (Slots);
@@ -57,27 +96,24 @@ app.post("/UpdateTable", async function (req, res) {
 
     var object = req.body;
     console.log(object)
-    var database = await getdatabase();
 
-    var Slots = database.filter(function (result) {
-   
-        if (result.Week === object.Week && result.Day === object.Day && result.TimeSlot === object.TimeSlot && result.Table === object.Table) {
-            return object
-        }
-    });
+    var query = "SELECT * FROM TableTennis WHERE Week = '" + object.Week + "' AND Day = '" + object.Day + "'AND TimeSlot ='" + object.TimeSlot + "'AND Table7 ='" + object.Table +"'"
 
+    var Slots = await mysqlget(query)
+  
+    
     if (Slots.length == 0) {
 
-        database.push(object);
-        var bookingdatabase = JSON.stringify(database)
-        await fs.writeFileSync('./Database.json', bookingdatabase)
-        
-        res.send({ "Status": "Booked" })
+        var status = { "Status": "Booked" };
+        var query = "INSERT INTO TableTennis (Week,Day,Mem_No,Name,PartnerName,TimeSlot,Table7) VALUES('" + object.Week + "','" + object.Day + "','" + object.Mem_No + "','" + object.Name + "','" + object.PartnerName + "','" + object.TimeSlot + "','" + object.Table+"')"
+        mysqlkluarc(query, res, status)
+
     }
 
     else {
 
         res.send({ "Status": "Error" })
+
     }
    
     
@@ -86,7 +122,8 @@ app.post("/UpdateTable", async function (req, res) {
 
 app.post("/ViewBookings", async function (req, res) {
 
-    var database = await getdatabase();
+    var query = "SELECT * FROM TableTennis"
+    var database = await mysqlget(query)
    
     res.send(database);
 });
