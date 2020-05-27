@@ -120,7 +120,20 @@ app.get("/ViewBookings", async function (req, res) {
 
 });
 
+app.post("/Cancel", async function (req, res) {
 
+    var object = req.body;
+    console.log(object)
+    // "DELETE FROM `TableTennis` WHERE Week= '" + object.Week + "'AND Day= '" + object.Day + "'AND Day= '" + object.Mem_No + "'AND Name= '" + object.Name + "'AND PartnerName='" + object.PartnerName + "'AND PartnerName='"
+    var query = "DELETE FROM TableTennis WHERE Week = '" + object.Week + "'AND Day= '" + object.Day + "' AND Mem_No ='" + object.Mem_No + "'AND Name= '" + object.Name + "'AND PartnerName= '" + object.PartnerName + "'AND TimeSlot ='" + object.TimeSlot + "'AND Table7 ='" + object.Table7 + "'"
+    //var query = "SELECT * FROM TableTennis"
+
+    var database = await mysqlget(query)
+
+    console.log(database);
+    res.send({ "Status": "Delete" });
+
+});
 
 http.createServer(app).listen(port, function () {
     console.log('Express server listening on port ' + port);
