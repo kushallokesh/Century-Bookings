@@ -5,11 +5,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    top:auto;
+    /*top:auto;*/
     width: 100vw;
     height: 100vh;
     background-color: rgba(105, 105, 105, 0.7);
-    z-index: 100;
+    z-index: 10000;
     text-align: center;
     justify-content:center;
     

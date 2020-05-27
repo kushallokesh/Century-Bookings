@@ -178,6 +178,7 @@ async function booktable() {
     var Player = document.getElementById("PlayerName");
     var Partner = document.getElementById("PartnerName")
     var Member = document.getElementById("MemNum")
+
     //console.log(tablevalue.value)
     //console.log(timevalue.value)
     //console.log(dayvalue.value)
@@ -186,13 +187,14 @@ async function booktable() {
     if (dayvalue.value == "" ||
         weekvalue.value == "" ||
         timevalue.value == "" ||
-        tablevalue.value == "" ||      
+        tablevalue.value == "" ||
         Player.value == "" ||
         Member.value == "") {
 
         alert("Please enter all Mandatory fields")
     
     }
+
     else {
 
         loader.style.display = "flex"
@@ -238,22 +240,5 @@ async function booktable() {
 
 }
 
-async function senddata(data, route) {
-
-    const options = {
-        method: 'POST',
-        
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-        body: JSON.stringify(data),
-
-    };
-
-    const response = await fetch(route, options);
-    return resdata = await response.json();
-
-}
 
 
