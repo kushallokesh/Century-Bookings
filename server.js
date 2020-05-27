@@ -22,10 +22,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Headers", "*");
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-    req.header("Access-Control-Allow-Origin", '*'); // update to match the domain you will make the request from
-    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    req.header("Access-Control-Allow-Headers", "*");
-    //req.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+
     next();
 });
 
