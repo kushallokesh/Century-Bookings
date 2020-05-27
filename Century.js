@@ -242,3 +242,20 @@ async function booktable() {
 
 
 
+async function senddata(data, route) {
+
+    const options = {
+        method: 'POST',
+
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify(data),
+
+    };
+
+    const response = await fetch(route, options);
+    return resdata = await response.json();
+
+}
