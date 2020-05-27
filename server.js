@@ -3,7 +3,7 @@ var http = require('http');
 var port = process.env.PORT || 1337;
 var mysql = require('mysql');
 var express = require('express');
-var app = express(); 
+var app = express();
 var bodyParser = require('body-parser');
 //var cookieParser = require('cookie-parser');
 
@@ -26,14 +26,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-async function getdatabase() {
-    const database1 = await fs.readFileSync('./Database.json')
-    var database = JSON.parse(database1);
-    return database
-    console.log(database);
-}
 
-async function mysqlkluarc(query,res,status) {
+async function mysqlkluarc(query, res, status) {
 
     var connection = mysql.createConnection({
         host: '77.104.168.224',
@@ -48,7 +42,7 @@ async function mysqlkluarc(query,res,status) {
         connection.end();
         res.send(status)
     });
-    
+
 }
 
 function mysqlget(query) {
@@ -61,7 +55,7 @@ function mysqlget(query) {
             database: 'kluarc20_Century'
         });
 
-        
+
         connection.query(query, function (error, results) {
 
             if (error) throw error
@@ -69,7 +63,7 @@ function mysqlget(query) {
             console.log(results);
             connection.end();
             resolve(results);
-           
+
         });
 
 
@@ -79,13 +73,13 @@ function mysqlget(query) {
 app.post("/GetSlots", async function (req, res) {
 
     var object = req.body;
-  //  console.log(data)
-    var query = "SELECT * FROM TableTennis WHERE Week = '" + object.Week + "' AND Day = '" + object.Day +"'"
+    //  console.log(data)
+    var query = "SELECT * FROM TableTennis WHERE Week = '" + object.Week + "' AND Day = '" + object.Day + "'"
 
     var Slots = await mysqlget(query)
 
     console.log(Slots)
-    res.send (Slots);
+    res.send(Slots);
 });
 
 app.post("/UpdateTable", async function (req, res) {
@@ -93,25 +87,26 @@ app.post("/UpdateTable", async function (req, res) {
     var object = req.body;
     console.log(object)
 
+    var query = "SELECT * FROM TableTennis WHERE Week = '" + object.Week + "' AND Day = '" + object.Day + "'AND TimeSlot ='" + object.TimeSlot + "'AND Table7 ='" + object.Table + "'"
 
     var Slots = await mysqlget(query)
-  
-    
+
+
     if (Slots.length == 0) {
 
         var status = { "Status": "Booked" };
-        var query = "INSERT INTO TableTennis (Week,Day,Mem_No,Name,PartnerName,TimeSlot,Table7) VALUES('" + object.Week + "','" + object.Day + "','" + object.Mem_No + "','" + object.Name + "','" + object.PartnerName + "','" + object.TimeSlot + "','" + object.Table+"')"
+        var query = "INSERT INTO TableTennis (Week,Day,Mem_No,Name,PartnerName,TimeSlot,Table7) VALUES('" + object.Week + "','" + object.Day + "','" + object.Mem_No + "','" + object.Name + "','" + object.PartnerName + "','" + object.TimeSlot + "','" + object.Table + "')"
         mysqlkluarc(query, res, status)
 
     }
 
-    else { 
+    else {
 
         res.send({ "Status": "Error" })
 
     }
-   
-    
+
+
 
 });
 
@@ -125,20 +120,6 @@ app.get("/ViewBookings", async function (req, res) {
 
 });
 
-app.post("/Cancel", async function (req, res) {
-
-    var object = req.body;
-    console.log(object)
-   // "DELETE FROM `TableTennis` WHERE Week= '" + object.Week + "'AND Day= '" + object.Day + "'AND Day= '" + object.Mem_No + "'AND Name= '" + object.Name + "'AND PartnerName='" + object.PartnerName + "'AND PartnerName='"
-    var query = "DELETE FROM TableTennis WHERE Week = '" + object.Week + "'AND Day= '" + object.Day + "' AND Mem_No ='" + object.Mem_No + "'AND Name= '" + object.Name + "'AND PartnerName= '" + object.PartnerName + "'AND TimeSlot ='" + object.TimeSlot + "'AND Table7 ='" + object.Table7 + "'"
-    //var query = "SELECT * FROM TableTennis"
-
-    var database = await mysqlget(query)
-
-    console.log(database);
-    res.send( {"Status":"Delete"} );
-
-});
 
 
 http.createServer(app).listen(port, function () {
