@@ -240,8 +240,6 @@ async function booktable() {
 
 }
 
-
-
 async function senddata(data, route) {
 
     const options = {
@@ -249,6 +247,9 @@ async function senddata(data, route) {
 
         headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow -Methods': '*',
+            'Access-Control-Allow -Methods': 'Content- Type'
         },
 
         body: JSON.stringify(data),
